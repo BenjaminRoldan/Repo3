@@ -1,0 +1,17 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+
+    <title>Buscador de personal de limpieza</title>
+
+        <form action="/AppZero/buscarPersonalLimpieza" method="GET">
+
+        <input type="text" name="nombre" id="nombre">
+
+        <input type="submit" value="Buscar">
+
+        </form>
+
+{% endblock %}
