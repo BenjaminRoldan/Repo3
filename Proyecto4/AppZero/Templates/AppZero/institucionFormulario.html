@@ -1,0 +1,26 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+
+    {% if instFormulario.errors %}
+
+    <p style="color: aquamarine;"> Revisar los datos </p>
+
+    {% endif %}
+
+    <form action="" method="POST"> {% csrf_token %}
+
+        <table>
+
+            {{instFormulario.as_table}}
+
+        </table>
+
+        <input type="submit" value="Enviar">
+
+
+    </form>
+
+{% endblock %}
