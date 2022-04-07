@@ -54,7 +54,7 @@ Las funcionalidades se ejecutan de la siguiente manera:
 
 ## Autores ✒️
 
-* **Carla Vilagómez**
+* **Carla Villagómez**
 * **Marcos Román Lupiano**
 * **Benjamin Roldán**
 
