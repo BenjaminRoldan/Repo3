@@ -1,0 +1,18 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+
+    <h4> Estos son los resultados de la busqueda de {{materia}}</h4>
+
+    <ul>
+        {% for materia in materias %}
+
+        <li>{{materia}}</li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}

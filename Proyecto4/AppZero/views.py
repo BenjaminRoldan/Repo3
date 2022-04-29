@@ -8,59 +8,63 @@ def inicio(request):
 
     return render(request, "AppZero/inicio.html")
 
-def instituciones(request):
+def autoridades(request):
 
-    return render(request, "AppZero/instituciones.html")
+    return render(request, "AppZero/autoridades.html")
 
-def administrativos(request):
+def alumnos(request):
 
-    return render(request, "AppZero/administrativos.html")
+    return render(request, "AppZero/alumnos.html")
 
-def docentes(request):
+def profesores(request):
 
-    return render(request,"AppZero/docentes.html")
+    return render(request,"AppZero/profesores.html")
 
-def personalLimpieza(request):
+def cursos(request):
 
-    return render(request, "AppZero/personalLimpieza.html")
+    return render(request, "AppZero/cursos.html")
 
-def institucionFormulario(request):
+def materias(request):
+
+    return render(request, "AppZero/materias.html")
+
+def autoridadFormulario(request):
 
     if request.method == 'POST':
 
-        instFormulario = InstitucionFormulario(request.POST)
+        autFormulario = AutoridadesFormulario(request.POST)
 
-        print(instFormulario)
+        print(autFormulario)
 
-        if instFormulario.is_valid:
+        if autFormulario.is_valid:
 
-            informacion = instFormulario.cleaned_data
+            informacion = autFormulario.cleaned_data
 
-            institucion = Institucion (nombre=informacion['nombre'], direccion=informacion['direccion'], nivel=informacion['nivel'])
+            autoridad = Autoridad (nombre=informacion['nombre'], apellido=informacion['apellido'], telefono=informacion['telefono'], cargo=informacion['cargo'])
 
-            institucion.save()
+            autoridad.save()
 
             return render(request, "AppZero/inicio.html")
 
     else:
 
-        instFormulario = InstitucionFormulario()
+        autFormulario = AutoridadesFormulario()
 
     
-    return render (request, "AppZero/institucionFormulario.html", {"instFormulario":instFormulario})
+    return render (request, "AppZero/autoridadFormulario.html", {"autFormulario":autFormulario})
 
-def busquedaInstitucion(request):
+def busquedaAutoridad(request):
 
-    return render(request, 'AppZero/busquedaInstitucion.html')
+    return render(request, 'AppZero/busquedaAutoridad.html')
 
-def buscarInstitucion(request):
+def buscarAutoridad(request):
 
     if request.GET["nombre"]:
 
         nombre = request.GET['nombre']
-        nombres = Institucion.objects.filter(nombre=nombre)
+        nombres = Autoridad.objects.filter(nombre=nombre)
 
-        return render(request, "AppZero/resultadoBuscarInstitucion.html", {"nombres":nombres, "nombre":nombre})
+        return render(request, "AppZero/resultadoBuscarAutoridad.html", {"nombres":nombres, "nombre":nombre})
 
     else:
 
@@ -69,43 +73,43 @@ def buscarInstitucion(request):
 
     return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
 
-def administrativosFormulario(request):
+def alumnosFormulario(request):
 
     if request.method == 'POST':
 
-        admonFormulario = AdministrativosFormulario(request.POST)
+        alumnoFormulario = AlumnosFormulario(request.POST)
 
-        print(admonFormulario)
+        print(alumnoFormulario)
 
-        if admonFormulario.is_valid:
+        if alumnoFormulario.is_valid:
 
-            informacion = admonFormulario.cleaned_data
+            informacion = alumnoFormulario.cleaned_data
 
-            administrativo = Administrativo (nombre=informacion['nombre'], apellido=informacion['apellido'], edad=informacion['edad'])
+            alumnos = Alumno (nombre=informacion['nombre'], apellido=informacion['apellido'], telefono=informacion['telefono'], edad=informacion['edad'])
 
-            administrativo.save()
+            alumnos.save()
 
             return render(request, "AppZero/inicio.html")
 
     else:
 
-        admonFormulario = AdministrativosFormulario()
+        alumnoFormulario = AlumnosFormulario()
 
     
-    return render (request, "AppZero/administrativosFormulario.html", {"admonFormulario":admonFormulario})
+    return render (request, "AppZero/alumnosFormulario.html", {"alumnoFormulario":alumnoFormulario})
 
-def busquedaAdministrativos(request):
+def busquedaAlumnos(request):
 
-    return render(request, 'AppZero/busquedaAdministrativos.html')
+    return render(request, 'AppZero/busquedaAlumnos.html')
 
-def buscarAdministrativos(request):
+def buscarAlumnos(request):
 
     if request.GET["nombre"]:
 
         nombre = request.GET['nombre']
-        nombres = Administrativo.objects.filter(nombre=nombre)
+        nombres = Alumno.objects.filter(nombre=nombre)
 
-        return render(request, "AppZero/resultadoBuscarAdministrativos.html", {"nombres":nombres, "nombre":nombre})
+        return render(request, "AppZero/resultadobuscarAlumnos.html", {"nombres":nombres, "nombre":nombre})
 
     else:
 
@@ -114,43 +118,43 @@ def buscarAdministrativos(request):
 
     return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
 
-def docentesFormulario(request):
+def profesoresFormulario(request):
 
     if request.method == 'POST':
 
-        docFormulario = DocentesFormulario(request.POST)
+        profeFormulario = ProfesoresFormulario(request.POST)
 
-        print(docFormulario)
+        print(profeFormulario)
 
-        if docFormulario.is_valid:
+        if profeFormulario.is_valid:
 
-            informacion = docFormulario.cleaned_data
+            informacion = profeFormulario.cleaned_data
 
-            docentes = Docente (nombre=informacion['nombre'], apellido=informacion['apellido'], edad=informacion['edad'], materia=informacion['materia'])
+            profesores = Profesor (nombre=informacion['nombre'], apellido=informacion['apellido'], telefono=informacion['telefono'], edad=informacion['edad'], especialidad=informacion['especialidad'])
 
-            docentes.save()
+            profesores.save()
 
             return render(request, "AppZero/inicio.html")
 
     else:
 
-        docFormulario = DocentesFormulario()
+        profeFormulario = ProfesoresFormulario()
 
     
-    return render (request, "AppZero/docentesFormulario.html", {"docFormulario":docFormulario})
+    return render (request, "AppZero/profesoresFormulario.html", {"profeFormulario":profeFormulario})
 
-def busquedaDocentes(request):
+def busquedaProfesores(request):
 
-    return render(request, 'AppZero/busquedaDocentes.html')
+    return render(request, 'AppZero/busquedaProfesores.html')
 
-def buscarDocentes(request):
+def buscarProfesores(request):
 
     if request.GET["nombre"]:
 
         nombre = request.GET['nombre']
-        nombres = Docente.objects.filter(nombre=nombre)
+        nombres = Profesor.objects.filter(nombre=nombre)
 
-        return render(request, "AppZero/resultadoBuscarDocentes.html", {"nombres":nombres, "nombre":nombre})
+        return render(request, "AppZero/resultadoBuscarProfesores.html", {"nombres":nombres, "nombre":nombre})
 
     else:
 
@@ -159,43 +163,88 @@ def buscarDocentes(request):
 
     return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
 
-def personalLimpiezaFormulario(request):
+def cursoFormulario(request):
 
     if request.method == 'POST':
 
-        perslimpFormulario = PersonalLimpiezaFormulario(request.POST)
+        curFormulario = CursoFormulario(request.POST)
 
-        print(perslimpFormulario)
+        print(curFormulario)
 
-        if perslimpFormulario.is_valid:
+        if curFormulario.is_valid:
 
-            informacion = perslimpFormulario.cleaned_data
+            informacion = curFormulario.cleaned_data
 
-            persLimpieza = PersonalLimpieza (nombre=informacion['nombre'], apellido=informacion['apellido'], edad=informacion['edad'], turno=informacion['turno'])
+            cur = Curso (materia=informacion['materia'], nivel=informacion['nivel'])
 
-            persLimpieza.save()
+            cur.save()
 
             return render(request, "AppZero/inicio.html")
 
     else:
 
-        perslimpFormulario = PersonalLimpiezaFormulario()
+        curFormulario = CursoFormulario()
 
     
-    return render (request, "AppZero/personalLimpiezaFormulario.html", {"perslimpFormulario":perslimpFormulario})
+    return render (request, "AppZero/cursoFormulario.html", {"curFormulario":curFormulario})
 
-def busquedaPersonalLimpieza(request):
+def busquedaCurso(request):
 
-    return render(request, 'AppZero/busquedaPersonalLimpieza.html')
+    return render(request, 'AppZero/busquedaCurso.html')
 
-def buscarPersonalLimpieza(request):
+def buscarCurso(request):
+
+    if request.GET["materia"]:
+
+        materia = request.GET['materia']
+        materias = Curso.objects.filter(materia=materia)
+
+        return render(request, "AppZero/resultadoBuscarCurso.html", {"materias":materias, "materia":materia})
+
+    else:
+
+        respuesta = "No se colocaron datos"
+
+
+    return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
+
+def materiaFormulario(request):
+
+    if request.method == 'POST':
+
+        materFormulario = MateriaFormulario(request.POST)
+
+        print(materFormulario)
+
+        if materFormulario.is_valid:
+
+            informacion = materFormulario.cleaned_data
+
+            materias = Materia (nombre=informacion['nombre'], nivel=informacion['nivel'])
+
+            materias.save()
+
+            return render(request, "AppZero/inicio.html")
+
+    else:
+
+        materFormulario = MateriaFormulario()
+
+    
+    return render (request, "AppZero/materiaFormulario.html", {"materFormulario":materFormulario})
+
+def busquedaMateria(request):
+
+    return render(request, 'AppZero/busquedaMateria.html')
+
+def buscarMateria(request):
 
     if request.GET["nombre"]:
 
         nombre = request.GET['nombre']
-        nombres = PersonalLimpieza.objects.filter(nombre=nombre)
+        nombres = Materia.objects.filter(nombre=nombre)
 
-        return render(request, "AppZero/resultadoBuscarPersonalLimpieza.html", {"nombres":nombres, "nombre":nombre})
+        return render(request, "AppZero/resultadoBuscarMateria.html", {"nombres":nombres, "nombre":nombre})
 
     else:
 

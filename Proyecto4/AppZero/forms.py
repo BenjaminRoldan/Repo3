@@ -1,27 +1,33 @@
 from django import forms
 
-class InstitucionFormulario(forms.Form):
+class AutoridadesFormulario(forms.Form):
 
     nombre = forms.CharField()
-    direccion = forms.CharField()
+    apellido = forms.CharField()
+    telefono = forms.IntegerField()
+    cargo = forms.CharField()
+
+class AlumnosFormulario(forms.Form):
+
+    nombre = forms.CharField()
+    apellido = forms.CharField()
+    telefono = forms.IntegerField()
+    edad = forms.IntegerField()
+
+class ProfesoresFormulario(forms.Form):
+
+    nombre = forms.CharField()
+    apellido = forms.CharField()
+    telefono = forms.IntegerField()
+    edad = forms.IntegerField()
+    especialidad = forms.CharField()
+
+class CursoFormulario(forms.Form):
+
+    materia = forms.CharField()
     nivel = forms.CharField()
 
-class AdministrativosFormulario(forms.Form):
+class MateriaFormulario(forms.Form):
 
     nombre = forms.CharField()
-    apellido = forms.CharField()
-    edad = forms.IntegerField()
-
-class DocentesFormulario(forms.Form):
-
-    nombre = forms.CharField()
-    apellido = forms.CharField()
-    edad = forms.IntegerField()
-    materia = forms.CharField()
-
-class PersonalLimpiezaFormulario(forms.Form):
-
-    nombre = forms.CharField()
-    apellido = forms.CharField()
-    edad = forms.IntegerField()
-    turno = forms.CharField()
+    nivel = forms.CharField()

@@ -3,11 +3,14 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(Institucion)
+admin.site.register(Autoridad)
 
-admin.site.register(Administrativo)
+admin.site.register(Alumno)
 
-admin.site.register(Docente)
+admin.site.register(Profesor)
 
-admin.site.register(PersonalLimpieza)
+admin.site.register(Curso)
+
+admin.site.register(Materia)
+
 

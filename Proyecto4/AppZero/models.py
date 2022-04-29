@@ -1,41 +1,49 @@
 from django.db import models
 
 # Create your models here.
-class Institucion(models.Model):
+class Autoridad(models.Model):
 
     nombre=models.CharField(max_length=40)
-    direccion=models.CharField(max_length=40)
+    apellido=models.CharField(max_length=40)
+    telefono=models.IntegerField()
+    cargo=models.CharField(max_length=40)
+
+    def __str__(self) -> str:
+        return f'El directivo {self.nombre} {self.apellido} con telefono {self.telefono} y cargo {self.cargo}.'
+
+class Alumno(models.Model):
+
+    nombre=models.CharField(max_length=40)
+    apellido=models.CharField(max_length=40)
+    edad=models.IntegerField()
+
+    def __str__(self) -> str:
+        return f'El alumno {self.nombre} {self.apellido} con edad {self.edad}.'
+
+class Profesor(models.Model):
+
+    nombre=models.CharField(max_length=40)
+    apellido=models.CharField(max_length=40)
+    telefono=models.IntegerField()
+    edad=models.IntegerField()
+    especialidad=models.CharField(max_length=40)
+
+    def __str__(self) -> str:
+        return f'El profesor {self.nombre} {self.apellido} con telefono {self.telefono} con edad {self.edad} con edad {self.edad} y especialidad {self.especialidad}'
+    
+
+class Curso(models.Model):
+
+    materia=models.CharField(max_length=40)
     nivel=models.CharField(max_length=40)
 
     def __str__(self) -> str:
-        return f'La Institución {self.nombre} de nivel {self.nivel} ubicada en {self.direccion}.'
+        return f'El curso que contiene la materia {self.materia} correspondiente al nivel {self.nivel}'
 
-class Administrativo(models.Model):
-
-    nombre=models.CharField(max_length=40)
-    apellido=models.CharField(max_length=40)
-    edad=models.IntegerField()
-
-    def __str__(self) -> str:
-        return f'El administrativo {self.nombre} {self.apellido}'
-
-class Docente(models.Model):
+class Materia(models.Model):
 
     nombre=models.CharField(max_length=40)
-    apellido=models.CharField(max_length=40)
-    edad=models.IntegerField()
-    materia=models.CharField(max_length=40)
+    nivel=models.CharField(max_length=40)
 
     def __str__(self) -> str:
-        return f'El docente {self.nombre} {self.apellido} de la materia {self.materia}'
-    
-
-class PersonalLimpieza(models.Model):
-
-    nombre=models.CharField(max_length=40)
-    apellido=models.CharField(max_length=40)
-    edad=models.IntegerField()
-    turno=models.CharField(max_length=40)
-
-    def __str__(self) -> str:
-        return f'El personal de limpieza {self.nombre} {self.apellido} del turno {self.turno}'
+        return f'La materia {self.nombre} correspondiente al nivel {self.nivel}'
