@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+import AppZero.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', AppZero.views.inicio, name="Inicio"),
     path('AppZero/', include('AppZero.urls')),
     path('Usuarios/', include('Usuarios.urls')),
 ]
