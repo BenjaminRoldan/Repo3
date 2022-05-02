@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 
+from Usuarios.forms import RegisterForm
+
 from .models import UserProfile
 
 def login_request(request):
@@ -32,7 +34,6 @@ def register(request):
         form = UserCreationForm(request.POST)
         
         if form.is_valid():
-            username = form.cleaned_data['username']
             form.save()
             return render(request, 'inicio.html', {'mensaje': 'Usuario Creado'})
 
@@ -42,5 +43,8 @@ def register(request):
     return render(request, 'registro.html', {'form': form})
 
 def testuserprofile(request):
-    context = UserProfile.objects.filter(user = request.user)
-    return render(request, 'testuserprofile.html', {'cargo': context[0].cargo})
+    if request.user.is_authenticated:
+        context = UserProfile.objects.filter(user = request.user)
+        return render(request, 'testuserprofile.html', {'cargo': context[0].cargo})
+    else:
+        return render(request, 'testuserprofile.html')
