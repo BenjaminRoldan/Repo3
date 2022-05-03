@@ -2,76 +2,16 @@ from django.shortcuts import render
 from AppZero.forms import *
 from AppZero.models import *
 
-# Create your views here.
-
 def inicio(request):
 
     return render(request, "AppZero/inicio.html")
 
-def autoridades(request):
 
-    return render(request, "AppZero/autoridades.html")
-
+#--------------------ALUMNOS--------------------
 def alumnos(request):
 
-    return render(request, "AppZero/alumnos.html")
+    return render(request, "AppZero/Alumnos/alumnos.html")
 
-def profesores(request):
-
-    return render(request,"AppZero/profesores.html")
-
-def cursos(request):
-
-    return render(request, "AppZero/cursos.html")
-
-def materias(request):
-
-    return render(request, "AppZero/materias.html")
-
-def autoridadFormulario(request):
-
-    if request.method == 'POST':
-
-        autFormulario = AutoridadesFormulario(request.POST)
-
-        print(autFormulario)
-
-        if autFormulario.is_valid:
-
-            informacion = autFormulario.cleaned_data
-
-            autoridad = Autoridad (nombre=informacion['nombre'], apellido=informacion['apellido'], telefono=informacion['telefono'], cargo=informacion['cargo'])
-
-            autoridad.save()
-
-            return render(request, "AppZero/inicio.html")
-
-    else:
-
-        autFormulario = AutoridadesFormulario()
-
-    
-    return render (request, "AppZero/autoridadFormulario.html", {"autFormulario":autFormulario})
-
-def busquedaAutoridad(request):
-
-    return render(request, 'AppZero/busquedaAutoridad.html')
-
-def buscarAutoridad(request):
-
-    if request.GET["nombre"]:
-
-        nombre = request.GET['nombre']
-        nombres = Autoridad.objects.filter(nombre=nombre)
-
-        return render(request, "AppZero/resultadoBuscarAutoridad.html", {"nombres":nombres, "nombre":nombre})
-
-    else:
-
-        respuesta = "No se colocaron datos"
-
-
-    return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
 
 def alumnosFormulario(request):
 
@@ -95,12 +35,13 @@ def alumnosFormulario(request):
 
         alumnoFormulario = AlumnosFormulario()
 
-    
     return render (request, "AppZero/alumnosFormulario.html", {"alumnoFormulario":alumnoFormulario})
+
 
 def busquedaAlumnos(request):
 
     return render(request, 'AppZero/busquedaAlumnos.html')
+
 
 def buscarAlumnos(request):
 
@@ -115,8 +56,14 @@ def buscarAlumnos(request):
 
         respuesta = "No se colocaron datos"
 
-
     return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
+
+
+#--------------------PROFESORES--------------------
+def profesores(request):
+
+    return render(request,"AppZero//profesores.html")
+
 
 def profesoresFormulario(request):
 
@@ -140,12 +87,13 @@ def profesoresFormulario(request):
 
         profeFormulario = ProfesoresFormulario()
 
-    
     return render (request, "AppZero/profesoresFormulario.html", {"profeFormulario":profeFormulario})
+
 
 def busquedaProfesores(request):
 
     return render(request, 'AppZero/busquedaProfesores.html')
+
 
 def buscarProfesores(request):
 
@@ -160,8 +108,66 @@ def buscarProfesores(request):
 
         respuesta = "No se colocaron datos"
 
+    return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
+
+
+#--------------------AUTORIDADES--------------------
+def autoridades(request):
+
+    return render(request, "AppZero/autoridades.html")
+
+
+def autoridadFormulario(request):
+
+    if request.method == 'POST':
+
+        autFormulario = AutoridadesFormulario(request.POST)
+
+        print(autFormulario)
+
+        if autFormulario.is_valid:
+
+            informacion = autFormulario.cleaned_data
+
+            autoridad = Autoridad (nombre=informacion['nombre'], apellido=informacion['apellido'], telefono=informacion['telefono'], cargo=informacion['cargo'])
+
+            autoridad.save()
+
+            return render(request, "AppZero/inicio.html")
+
+    else:
+
+        autFormulario = AutoridadesFormulario()
+    
+    return render (request, "AppZero/autoridadFormulario.html", {"autFormulario":autFormulario})
+
+
+def busquedaAutoridad(request):
+
+    return render(request, 'AppZero/busquedaAutoridad.html')
+
+
+def buscarAutoridad(request):
+
+    if request.GET["nombre"]:
+
+        nombre = request.GET['nombre']
+        nombres = Autoridad.objects.filter(nombre=nombre)
+
+        return render(request, "AppZero/resultadoBuscarAutoridad.html", {"nombres":nombres, "nombre":nombre})
+
+    else:
+
+        respuesta = "No se colocaron datos"
 
     return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
+
+
+#--------------------CURSOS--------------------
+def cursos(request):
+
+    return render(request, "AppZero/cursos.html")
+
 
 def cursoFormulario(request):
 
@@ -185,12 +191,13 @@ def cursoFormulario(request):
 
         curFormulario = CursoFormulario()
 
-    
     return render (request, "AppZero/cursoFormulario.html", {"curFormulario":curFormulario})
+
 
 def busquedaCurso(request):
 
     return render(request, 'AppZero/busquedaCurso.html')
+
 
 def buscarCurso(request):
 
@@ -205,8 +212,14 @@ def buscarCurso(request):
 
         respuesta = "No se colocaron datos"
 
-
     return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
+
+
+#--------------------MATERIAS--------------------
+def materias(request):
+
+    return render(request, "AppZero/materias.html")
+
 
 def materiaFormulario(request):
 
@@ -229,13 +242,14 @@ def materiaFormulario(request):
     else:
 
         materFormulario = MateriaFormulario()
-
     
     return render (request, "AppZero/materiaFormulario.html", {"materFormulario":materFormulario})
+
 
 def busquedaMateria(request):
 
     return render(request, 'AppZero/busquedaMateria.html')
+
 
 def buscarMateria(request):
 
@@ -249,6 +263,5 @@ def buscarMateria(request):
     else:
 
         respuesta = "No se colocaron datos"
-
 
     return render(request, "AppZero/inicio.html", {"respuesta":respuesta})
