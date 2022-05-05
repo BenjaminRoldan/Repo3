@@ -14,20 +14,22 @@ Las funcionalidades se ejecutan de la siguiente manera:
  
  Dentro de la página web se despliegan las siguientes opciones:
  
-- REGISTRAR INSTITUCIONES:
-  - Al seleccionar esta opción le permitirá realizar un registro en la base de datos respecto de una nueva institución con los siguientes datos:
-    - Nombre
-    - Dirección
-    - Nivel
-- BUSCAR INSTITUCIONES:
-  - Al seleccionar esta opción podrá realizar una búsqueda de instituciones por nombre.
-- REGISTRAR ADMINISTRATIVOS:
-  - Al seleccionar esta opción le permitirá realizar un registro en la base de datos respecto de un nuevo administrativo con los siguientes datos:
+- COLEGIO:
+  - Al seleccionar esta opción le permitirá realizar un registro en la base de datos respecto con los siguientes datos:
+    - INGRESO
+    - INSTITUCION
+- INSCRIPCION:
+  - Al seleccionar esta opción podrá realizar el ingreso de datos para inscripcion de un alumno ,administrativo o profesor   .
+  - alumno
+  - institucional
+- REGISTRAR ALUMNO:
+  - Al seleccionar esta opción le permitirá realizar un registro en la base de datos respecto de un nuevo alumno con los siguientes datos:
     - Nombre
     - Apellido
     - Edad
-- BUSCAR ADMINISTRATIVOS:
-  - Al seleccionar esta opción podrá realizar una búsqueda de administrativos por nombre.
+    - Dni
+    - telefono
+  - Al seleccionar esta opción podrá realizar una búsqueda de docente por nombre.
 - REGISTRAR DOCENTES:
   - Al seleccionar esta opción le permitirá realizar un registro en la base de datos respecto de un nuevo docente con los siguientes datos:
     - Nombre
@@ -36,14 +38,14 @@ Las funcionalidades se ejecutan de la siguiente manera:
     - Materia
 - BUSCAR DOCENTES:
   - Al seleccionar esta opción podrá realizar una búsqueda de docentes por nombre.
-- REGISTRAR PERSONAL DE LIMPIEZA:
+- REGISTRAR PERSONAL administarivo:
   - Al seleccionar esta opción le permitirá realizar un registro en la base de datos respecto de nuevo personal de limipeza con los siguientes datos:
     - Nombre
     - Apellido
     - Edad
     - Turno
-- BUSCAR PERSONAL DE LIMPIEZA:
-  - Al seleccionar esta opción podrá realizar una búsqueda de personal de limpieza por nombre.
+- CALIFICACION:
+  - Al seleccionar esta opción podrá realizar una búsqueda de NOTAS , (eL ALUMNO ) ,ingresar datos (docente )calificacion y el estado (aprobado o desaprobado).
 
 ## Construido con 🛠️
 
