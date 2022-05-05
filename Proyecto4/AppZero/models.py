@@ -15,7 +15,6 @@ class Alumno(models.Model):
 
     nombre=models.CharField(max_length=40)
     apellido=models.CharField(max_length=40)
-    edad=models.IntegerField()
 
     def __str__(self) -> str:
         return f'El alumno {self.nombre} {self.apellido} con edad {self.edad}.'
@@ -24,9 +23,9 @@ class Profesor(models.Model):
 
     nombre=models.CharField(max_length=40)
     apellido=models.CharField(max_length=40)
-    telefono=models.IntegerField()
-    edad=models.IntegerField()
     especialidad=models.CharField(max_length=40)
+    DNI = models.IntegerField()
+    telefono=models.IntegerField()
 
     def __str__(self) -> str:
         return f'El profesor {self.nombre} {self.apellido} con telefono {self.telefono} con edad {self.edad} con edad {self.edad} y especialidad {self.especialidad}'

@@ -1,0 +1,24 @@
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky -top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand text-uppercase" href="">Escuela primaria N°8</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                {% if request.user.is_authenticated %}
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Alumnos' %}">Alumnos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Cursos' %}">Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Profesores' %">Docentes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Autoridades' %}">Autoridades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Personal de limpieza</a></li>
+                    </ul>
+                {% else %}
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Iniciar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'BuscarAlumnos' %}">Ver las notas de un alumno</a></li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </nav>

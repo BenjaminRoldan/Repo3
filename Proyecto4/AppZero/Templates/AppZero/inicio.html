@@ -3,5 +3,15 @@
 {% load static %}
 
 {% block contenidoAdicional %}
-
+<!-- Header-->
+<header class="bg-primary bg-gradient text-white ">
+    <div class="container px-4 text-center">
+        <h1 class="fw-bolder ">Sea bienvenido a la gestión de la escuela primaria</h1>
+        <p class="lead"> <br> Si usted es empleado por favor inicie sesión</p>
+        <a class="btn btn-lg btn-light" href="{% url 'Login' %}">Iniciar Sesión</a>
+        <p class="lead"> <br> Si quiere ver las notas de un alumno, ingrese en el sigiente botón:</p>
+        <br>
+        <a class="btn btn-lg btn-light" href="{% url 'BuscarAlumnos' %}"> Ver notas de un alumno</a>
+    </div>
+</header>
 {% endblock %}
