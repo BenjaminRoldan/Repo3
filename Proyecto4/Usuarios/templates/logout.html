@@ -1,11 +1,12 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar</title>
-</head>
-<body>
-    <h1>Hasta la próxima</h1>    
-</body>
-</html>
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+<h2>Usted ha cerrado sesión</h2>
+<h3>Para volver a iniciar sesión haga click en el siguiente botón: </h3>
+<a class="btn btn-lg btn-primary" href="{% url 'Login' %}">Iniciar Sesión</a>
+<h3>Para volver al inicio: </h3>
+<a class="btn btn-lg btn-secondary" href="{% url 'Inicio' %}">Inicio</a>
+
+{% endblock %}

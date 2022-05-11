@@ -1,6 +1,15 @@
 from django.db import models
 
 # Create your models here.
+class PersLimp(models.Model):
+
+    nombre=models.CharField(max_length=40)
+    apellido=models.CharField(max_length=40)
+    DNI = models.IntegerField()
+    direccion=models.CharField(max_length=40, blank=True)
+    telefono=models.IntegerField(blank=True)
+    direccion=models.EmailField(blank=True)
+
 class Autoridad(models.Model):
 
     nombre=models.CharField(max_length=40)

@@ -1,0 +1,34 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Turno</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for persona in Personal %}
+        <tr>
+            <th scope="row">{{persona.id}}</th>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellido}}</td>
+            <td>{{persona.dni}}</td>
+            <td>{{persona.direccion}}</td>
+            <td>{{persona.telefono}}</td>
+            <td>{{persona.email}}</td>
+            <td>{{persona.turno}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
