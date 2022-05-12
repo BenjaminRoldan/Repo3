@@ -13,7 +13,7 @@ urlpatterns = [
 
 
     #----------------PROFESORES----------------
-    path('profesores/', views.profesores, name="Profesores"),
+    path('profesores/', views.profesores, name="Docentes"),
     path('profesoresFormulario/', views.profesoresFormulario, name="ProfesoresFormulario"),
     path('busquedaProfesores/', views.busquedaProfesores, name="BusquedaProfesores"),
     path('buscarProfesores/', views.buscarProfesores, name="BuscarProfesores"),

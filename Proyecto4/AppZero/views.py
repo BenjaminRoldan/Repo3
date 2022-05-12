@@ -77,7 +77,7 @@ def profesoresFormulario(request):
 
             informacion = profeFormulario.cleaned_data
 
-            profesores = Profesor (nombre=informacion['nombre'], apellido=informacion['apellido'], telefono=informacion['telefono'], edad=informacion['edad'], especialidad=informacion['especialidad'])
+            profesores = Docente (nombre=informacion['nombre'], apellido=informacion['apellido'], telefono=informacion['telefono'], edad=informacion['edad'], especialidad=informacion['especialidad'])
 
             profesores.save()
 
@@ -100,7 +100,7 @@ def buscarProfesores(request):
     if request.GET["nombre"]:
 
         nombre = request.GET['nombre']
-        nombres = Profesor.objects.filter(nombre=nombre)
+        nombres = Docente.objects.filter(nombre=nombre)
 
         return render(request, "AppZero/Docentes/resultadoBuscarProfesores.html", {"nombres":nombres, "nombre":nombre})
 

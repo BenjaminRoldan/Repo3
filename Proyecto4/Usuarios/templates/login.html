@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block contenidoAdicional %}
+<h3>Solo podrás iniciar sesión si eres un empleado con una cuenta que la administración te habrá dado</h3>
 <form action="" method="POST"> {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Iniciar Sesión</button>

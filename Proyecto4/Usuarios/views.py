@@ -2,10 +2,7 @@ from django.shortcuts import render
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
-
-from Usuarios.forms import RegisterForm
-
-from .models import UserProfile
+from django.contrib.auth.decorators import login_required
 
 def login_request(request):
     if request.method == 'POST':
@@ -19,11 +16,7 @@ def login_request(request):
 
             if user is not None:
                 login(request, user)
-                return render(request, 'inicio.html', {'mensaje': f'Bienvenido {usuario}'})
-            else:
-                return render(request, 'inicio.html', {'mensaje': f'Error, datos incorrectos'})
-        else:
-            return render(request, 'inicio.html', {'mensaje': f'Error, formulario erroneo'})
+        return render(request, 'inicio.html')
 
     form = AuthenticationForm()
 
@@ -35,16 +28,9 @@ def register(request):
         
         if form.is_valid():
             form.save()
-            return render(request, 'inicio.html', {'mensaje': 'Usuario Creado'})
+            return render(request, 'inicio.html')
 
     else: 
         form = UserCreationForm()
     
     return render(request, 'registro.html', {'form': form})
-
-def testuserprofile(request):
-    if request.user.is_authenticated:
-        context = UserProfile.objects.filter(user = request.user)
-        return render(request, 'testuserprofile.html', {'cargo': context[0].cargo})
-    else:
-        return render(request, 'testuserprofile.html')

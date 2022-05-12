@@ -3,7 +3,35 @@
 {% load static %}
 
 {% block contenidoAdicional %}
-<!-- Header-->
+
+{% if request.user.is_authenticated %}
+
+    {% for group in request.user.groups.all %}
+        <header class="bg-primary bg-gradient text-white ">
+        <div class="container px-4 text-center">
+
+            {% if group.name == 'Docentes' %}
+                <h1 class="fw-bolder ">Sea bienvenido Docente {{ user.get_username }}</h1>
+                <p>Usted tiene permiso para modificar las notas de los alumnos</p>
+            {% endif %}
+
+
+            {% if group.name == 'Preceptores' %}
+                <h1 class="fw-bolder ">Sea bienvenido Preceptor/a {{ user.get_username }}</h1>
+                <p>Usted tiene permiso para agregar, modificar y borrar alumnos</p>
+            {% endif %}
+
+
+            {% if group.name == 'Recursos Humanos' %}
+                <h1 class="fw-bolder ">Sea bienvenido reclutador/a {{ user.get_username }}</h1>
+                <p>Usted tiene permiso para agregar, modificar y borrar docentes y personal de limpieza</p>
+            {% endif %}
+
+        </div>
+        </header>
+
+    {% endfor %}
+{% else %}
 <header class="bg-primary bg-gradient text-white ">
     <div class="container px-4 text-center">
         <h1 class="fw-bolder ">Sea bienvenido a la gestión de la escuela primaria</h1>
@@ -14,4 +42,5 @@
         <a class="btn btn-lg btn-light" href="{% url 'BuscarAlumnos' %}"> Ver notas de un alumno</a>
     </div>
 </header>
+{% endif %}
 {% endblock %}
