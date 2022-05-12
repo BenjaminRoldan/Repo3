@@ -58,6 +58,10 @@ def buscarAlumnos(request):
 
     return render(request, "AppZero/Alumnos/inicio.html", {"respuesta":respuesta})
 
+def buscarAlumnoDNI(request):
+
+    return render(request, "AppZero/Alumnos/buscaralumnodni.html")
+
 
 #--------------------PROFESORES--------------------
 def profesores(request):
