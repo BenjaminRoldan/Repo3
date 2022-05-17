@@ -8,7 +8,7 @@ class PersLimp(models.Model):
     DNI = models.IntegerField()
     direccion=models.CharField(max_length=60, blank=True, null=True)
     telefono=models.IntegerField(blank=True, null=True)
-    direccion=models.EmailField(blank=True, null=True)
+    email=models.EmailField(blank=True, null=True)
     turno = models.CharField(max_length=40)
 
     def __str__(self):
@@ -20,7 +20,7 @@ class Autoridad(models.Model):
     DNI = models.IntegerField()
     direccion=models.CharField(max_length=60, blank=True, null=True)
     telefono=models.IntegerField(blank=True, null=True)
-    direccion=models.EmailField(blank=True, null=True)
+    email=models.EmailField(blank=True, null=True)
     cargo = models.CharField(max_length=40)
 
     def __str__(self):
@@ -32,7 +32,7 @@ class Docente(models.Model):
     DNI = models.IntegerField()
     direccion=models.CharField(max_length=60, blank=True, null=True)
     telefono=models.IntegerField(blank=True, null=True)
-    direccion=models.EmailField(blank=True, null=True)
+    email=models.EmailField(blank=True, null=True)
     profesorado = models.CharField(max_length=40)
 
     def __str__(self):
@@ -65,7 +65,7 @@ class Alumno(models.Model):
     DNI = models.IntegerField()
     direccion=models.CharField(max_length=60, blank=True, null=True)
     telefono=models.IntegerField(blank=True, null=True)
-    direccion=models.EmailField(blank=True, null=True)
+    email=models.EmailField(blank=True, null=True)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
 
     def __str__(self):

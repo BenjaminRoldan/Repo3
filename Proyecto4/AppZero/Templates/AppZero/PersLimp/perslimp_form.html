@@ -1,0 +1,12 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+
+<form method="POST"> {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Crear y agregar">
+</form>
+
+{% endblock %}

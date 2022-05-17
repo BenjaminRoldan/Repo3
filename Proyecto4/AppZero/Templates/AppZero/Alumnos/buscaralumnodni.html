@@ -3,61 +3,66 @@
 {% load static %}
 
 {% block contenidoAdicional %}
-
+<h4>Ingrese el dni del alumno</h4>
 <form action="" method="GET">
-    <label for="dni">Ingrese el dni del alumno: </label>
-    <input type="number" id="dni" name="dni">
+    <label for="dni">DNI: </label>
+    <input type="number" name="dni">
     <button type="submit">Buscar Alumno</button>
 </form>
 
-
-{% if True %}
-<h4>Alumno: Jhon Doe | 1° Grado - División A</h4>
-    <table class="table">
-        <thead>
+{% if alumno %}
+    <h4>Alumno/a: {{alumno.nombre}} {{alumno.apellido}} | {{alumno.curso}}</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Matemáticas</th>
+                    <th scope="col">Ciencias Naturales</th>
+                    <th scope="col">Ciencias Sociales</th>
+                    <th scope="col">Prácticas del lenguaje</th>
+                    <th scope="col">Inglés</th>
+                    <th scope="col">Educación Física</th>
+                    <th scope="col">Promedio</th>
+                    </tr>
+            </thead>
+            <tbody>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Matemáticas</th>
-                <th scope="col">Ciencias Naturales</th>
-                <th scope="col">Ciencias Sociales</th>
-                <th scope="col">Prácticas del lenguaje</th>
-                <th scope="col">Inglés</th>
-                <th scope="col">Educación Física</th>
-                <th scope="col">Promedio</th>
-                </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1° Trimestre</th>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>P</td>
-          </tr>
-          <tr>
-            <th scope="row">2° Trimestre</th>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>P</td>
-          </tr>
-          <tr>
-            <th scope="row">3° Trimestre</th>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>P</td>
-          </tr>
-        </tbody>
-      </table>
-{% endif %}
+                <th scope="row">1° Trimestre</th>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>P</td>
+            </tr>
+            <tr>
+                <th scope="row">2° Trimestre</th>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>P</td>
+            </tr>
+            <tr>
+                <th scope="row">3° Trimestre</th>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>P</td>
+            </tr>
+            </tbody>
+        </table>
+    {% endif %}
+    
+    {% if error %}
+        <h5>El alumno que busca no existe en nuestra base de datos</h5>
+    {% endif %}
+        
+
 {% endblock %}

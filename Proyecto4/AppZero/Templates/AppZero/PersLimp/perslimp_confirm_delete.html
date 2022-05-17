@@ -1,0 +1,13 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+
+    <form method="POST"> {% csrf_token %}
+        ¿Estás seguro de que deseas borrar el personal "{{object}}"?
+        <input type="submit" value="Estoy seguro">
+    </form>
+    <a class="btn btn-lg btn-light" href="{% url 'PersLimpList' %}">Volver</a>
+
+{% endblock %}

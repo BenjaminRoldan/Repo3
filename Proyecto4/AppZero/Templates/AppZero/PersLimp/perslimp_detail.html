@@ -1,0 +1,16 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+    <ul>
+        <li>Personal: {{perslimp.nombre}} {{perslimp.apellido}}</li>
+        <li>DNI: {{perslimp.DNI}}</li>
+        <li>Dirección: {{perslimp.direccion}}</li>
+        <li>Teléfono: {{perslimp.telefono}}</li>
+        <li>Email: {{perslimp.email}}</li>
+        <li>Turno: {{perslimp.turno}}</li>
+    </ul>
+    <a class="btn btn-lg btn-warning" href="{% url 'PersLimpList' %}">Volver</a>
+
+{% endblock %}

@@ -31,3 +31,13 @@ class MateriaFormulario(forms.Form):
 
     nombre = forms.CharField()
     nivel = forms.CharField()
+
+class PersLimpFormulario(forms.Form):
+
+    nombre = forms.CharField()
+    apellido = forms.CharField()
+    dni = forms.IntegerField()
+    telefono = forms.IntegerField()
+    turno = forms.CharField()
+    turno = forms.CharField()
+    turno = forms.CharField()

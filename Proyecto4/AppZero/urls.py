@@ -39,4 +39,12 @@ urlpatterns = [
     path('materiaFormulario/', views.materiaFormulario, name="MateriaFormulario"),
     path('busquedaMateria/', views.busquedaMateria, name="BusquedaMateria"),
     path('buscarMateria/', views.buscarMateria, name="BuscarMateria"),
+
+    #----------------PERSONAL LIMPIEZA----------------
+    path('personal_limpieza/lista', views.PersLimpList.as_view(), name="PersLimpList"),
+    path('personal_limpieza/detalle/<pk>', views.PersLimpDetail.as_view(), name="PersLimpDetail"),
+    path('personal_limpieza/crear', views.PersLimpCreate.as_view(), name="PersLimpCreate"),
+    path('personal_limpieza/editar/<pk>', views.PersLimpUpdate.as_view(), name="PersLimpUpdate"),
+    path('personal_limpieza/borrar/<pk>', views.PersLimpDelete.as_view(), name="PersLimpDelete"),
+
 ]

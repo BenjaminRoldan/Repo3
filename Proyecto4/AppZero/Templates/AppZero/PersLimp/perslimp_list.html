@@ -1,0 +1,36 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+<h4>Personal de limpieza de la escuela</h4>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Turno</th>
+        <th scope="col">Acciones</th>   
+      </tr>
+    </thead>
+    <tbody> 
+    {% for per in object_list %}                
+      <tr>
+        <th scope="row">{{per.id}}</th>
+        <td>{{per.nombre}}</td>
+        <td>{{per.apellido}}</td>
+        <td>{{per.DNI}}</td>
+        <td>{{per.turno}}</td>
+        <td>
+            <a href="{% url 'PersLimpDetail' per.id %}">Detalle</a>
+            <a href="{% url 'PersLimpUpdate' per.id %}">Editar</a>
+            <a href="{% url 'PersLimpDelete' per.id %}">Borrar</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

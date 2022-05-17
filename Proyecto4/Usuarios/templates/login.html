@@ -6,7 +6,9 @@
 <h3>Solo podrás iniciar sesión si eres un empleado con una cuenta que la administración te habrá dado</h3>
 <form action="" method="POST"> {% csrf_token %}
     {{form.as_p}}
-    <button type="submit">Iniciar Sesión</button>
+    <button class="btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
 </form>
+    <br>
+    <a class="btn btn-secondary btn-sm" href="{% url 'Inicio' %}">Volver al inicio</a>
 
 {% endblock %}

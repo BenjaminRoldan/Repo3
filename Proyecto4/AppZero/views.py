@@ -1,3 +1,7 @@
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views.generic.detail import DetailView
 from django.shortcuts import render
 from AppZero.forms import *
 from AppZero.models import *
@@ -60,7 +64,15 @@ def buscarAlumnos(request):
 
 def buscarAlumnoDNI(request):
 
-    return render(request, "AppZero/Alumnos/buscaralumnodni.html")
+    dni = request.GET.get('dni')
+    if dni is not None:
+        try:
+            alumno = Alumno.objects.get(DNI=dni)
+        except: 
+            return render(request, "AppZero/Alumnos/buscaralumnodni.html", {'error': 1})
+    else:
+        alumno = ''
+    return render(request, "AppZero/Alumnos/buscaralumnodni.html", {'alumno': alumno})
 
 
 #--------------------PROFESORES--------------------
@@ -269,3 +281,26 @@ def buscarMateria(request):
         respuesta = "No se colocaron datos"
 
     return render(request, "AppZero/Materias/inicio.html", {"respuesta":respuesta})
+
+
+class PersLimpList(ListView):
+    model = PersLimp
+    template_name = 'AppZero/PersLimp/perslimp_list.html'
+
+class PersLimpDetail(DetailView):
+    model = PersLimp
+    template_name = 'AppZero/PersLimp/perslimp_detail.html'
+    
+class PersLimpCreate(CreateView):
+    model = PersLimp
+    success_url = 'AppZero/personal_limpieza/lista'
+    fields = ['__all__']
+
+class PersLimpUpdate(UpdateView):
+    model = PersLimp
+    success_url = 'AppZero/personal_limpieza/lista'
+    fields = ['__all__']
+
+class PersLimpDelete(DeleteView):
+    model = PersLimp
+    success_url = 'AppZero/personal_limpieza/lista'

@@ -7,11 +7,31 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 {% if request.user.is_authenticated %}
                     <ul class="navbar-nav ms-auto">
+                        
+                        {% if request.user.userprofile.cargo == 'Docente' %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Alumnos' %}">Alumnos</a></li>
+                        {% endif %}
+                        
+                        {% if request.user.userprofile.cargo == 'Preceptor' %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Cursos' %}">Cursos</a></li>
+
+                        {% endif %}
+
+                        {% if request.user.userprofile.cargo == 'Recursos Humanos' %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Docentes' %}">Docentes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Autoridades' %}">Autoridades</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'PersLimpList' %}">Personal de limpieza</a></li>
+                        {% endif %}
+
+                        {% if request.user.userprofile.cargo == 'Director' %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'Alumnos' %}">Alumnos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Cursos' %}">Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Docentes' %}">Docentes</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Autoridades' %}">Autoridades</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Personal de limpieza</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'PersLimpList' %}">Personal de limpieza</a></li>
+                        {% endif %}
+                        
+
                         <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Cerrar sesión</a></li>
                     </ul>
                 {% else %}

@@ -17,3 +17,5 @@ admin.site.register(Materia)
 admin.site.register(Calificacion)
 
 admin.site.register(Grado)
+
+admin.site.register(PersLimp)
