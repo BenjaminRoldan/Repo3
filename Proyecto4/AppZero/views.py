@@ -293,14 +293,17 @@ class PersLimpDetail(DetailView):
     
 class PersLimpCreate(CreateView):
     model = PersLimp
-    success_url = 'AppZero/personal_limpieza/lista'
-    fields = ['__all__']
+    #template_name = 'AppZero/PersLimp/perslimp_form.html'
+    success_url = '/AppZero/personal_limpieza/lista'
+    fields = '__all__'
 
 class PersLimpUpdate(UpdateView):
     model = PersLimp
-    success_url = 'AppZero/personal_limpieza/lista'
-    fields = ['__all__']
+    #template_name = 'AppZero/PersLimp/perslimp_form.html'
+    success_url = '/AppZero/personal_limpieza/lista'
+    fields = '__all__'
 
 class PersLimpDelete(DeleteView):
     model = PersLimp
-    success_url = 'AppZero/personal_limpieza/lista'
+    template_name = 'AppZero/PersLimp/perslimp_confirm_delete.html'
+    success_url = '/AppZero/personal_limpieza/lista'

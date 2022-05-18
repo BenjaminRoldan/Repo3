@@ -24,13 +24,14 @@
         <td>{{per.DNI}}</td>
         <td>{{per.turno}}</td>
         <td>
-            <a href="{% url 'PersLimpDetail' per.id %}">Detalle</a>
-            <a href="{% url 'PersLimpUpdate' per.id %}">Editar</a>
-            <a href="{% url 'PersLimpDelete' per.id %}">Borrar</a>
+            <a class="btn btn-primary" href="{% url 'PersLimpDetail' per.id %}">Detalle</a>
+            <a class="btn btn-info text-white" href="{% url 'PersLimpUpdate' per.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'PersLimpDelete' per.id %}">Borrar</a>
         </td>
       </tr>
     {% endfor %}
     </tbody>
   </table>
+  <a class="btn btn-success" href="{% url 'PersLimpCreate' %}">Añadir una nueva persona</a>
 
 {% endblock %}
