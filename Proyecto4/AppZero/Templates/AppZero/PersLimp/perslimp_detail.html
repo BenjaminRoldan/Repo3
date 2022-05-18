@@ -6,9 +6,18 @@
     <ul>
         <li>Personal: {{perslimp.nombre}} {{perslimp.apellido}}</li>
         <li>DNI: {{perslimp.DNI}}</li>
+        
+        {% if perslimp.direccion %}
         <li>Dirección: {{perslimp.direccion}}</li>
+        {% endif %}
+
+        {% if perslimp.telefono %}
         <li>Teléfono: {{perslimp.telefono}}</li>
+        {% endif %}
+
+        {% if perslimp.email %}
         <li>Email: {{perslimp.email}}</li>
+        {% endif %}
         <li>Turno: {{perslimp.turno}}</li>
     </ul>
     <a class="btn btn-lg btn-warning" href="{% url 'PersLimpList' %}">Volver</a>

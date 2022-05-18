@@ -283,6 +283,9 @@ def buscarMateria(request):
     return render(request, "AppZero/Materias/inicio.html", {"respuesta":respuesta})
 
 
+
+
+################## CRUD Personal de limpieza ##################
 class PersLimpList(ListView):
     model = PersLimp
     template_name = 'AppZero/PersLimp/perslimp_list.html'
@@ -307,3 +310,4 @@ class PersLimpDelete(DeleteView):
     model = PersLimp
     template_name = 'AppZero/PersLimp/perslimp_confirm_delete.html'
     success_url = '/AppZero/personal_limpieza/lista'
+##################################################################
