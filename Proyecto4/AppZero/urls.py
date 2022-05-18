@@ -4,41 +4,20 @@ from AppZero import views
 
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
+    path('', views.inicio, name="Cursos"),
+    path('', views.inicio, name="Docentes"),
+    path('', views.inicio, name="Autoridades"),
 
     #----------------ALUMNOS----------------
-    path('alumnos/', views.alumnos, name="Alumnos"),
-    path('alumnosFormulario/', views.alumnosFormulario, name="AlumnosFormulario"),
-    path('busquedaAlumnos/', views.busquedaAlumnos, name="BusquedaAlumnos"),
-    path('buscarAlumnos/', views.buscarAlumnos, name="BuscarAlumnos"),
     path('buscarAlumnoDNI/', views.buscarAlumnoDNI, name="BuscarAlumnoDNI"),
 
-
-    #----------------PROFESORES----------------
-    path('profesores/', views.profesores, name="Docentes"),
-    path('profesoresFormulario/', views.profesoresFormulario, name="ProfesoresFormulario"),
-    path('busquedaProfesores/', views.busquedaProfesores, name="BusquedaProfesores"),
-    path('buscarProfesores/', views.buscarProfesores, name="BuscarProfesores"),
-
-
-    #----------------AUTORIDADES----------------
-    path('autoridades/', views.autoridades, name="Autoridades"),
-    path('busquedaAutoridad/', views.busquedaAutoridad, name="BusquedaAutoridad"),
-    path('buscarAutoridad/', views.buscarAutoridad, name="BuscarAutoridad"),
-    path('autoridadFormulario/', views.autoridadFormulario, name="AutoridadFormulario"),
+    path('alumnos/lista', views.AlumnosList.as_view(), name="AlumnosList"),
+    path('alumnos/detalle/<pk>', views.AlumnosDetail.as_view(), name="AlumnosDetail"),
+    path('alumnos/crear', views.AlumnosCreate.as_view(), name="AlumnosCreate"),
+    path('alumnos/editar/<pk>', views.AlumnosUpdate.as_view(), name="AlumnosUpdate"),
+    path('alumnos/borrar/<pk>', views.AlumnosDelete.as_view(), name="AlumnosDelete"),
 
 
-    #----------------CURSOS----------------
-    path('cursos/', views.cursos, name="Cursos"),
-    path('cursoFormulario/', views.cursoFormulario, name="CursoFormulario"),
-    path('busquedaCurso/', views.busquedaCurso, name="BusquedaCurso"),
-    path('buscarCurso/', views.buscarCurso, name="BuscarCurso"),
-
-
-    #----------------MATERIAS----------------
-    path('materias/', views.materias, name="Materias"),
-    path('materiaFormulario/', views.materiaFormulario, name="MateriaFormulario"),
-    path('busquedaMateria/', views.busquedaMateria, name="BusquedaMateria"),
-    path('buscarMateria/', views.buscarMateria, name="BuscarMateria"),
 
     #----------------PERSONAL LIMPIEZA----------------
     path('personal_limpieza/lista', views.PersLimpList.as_view(), name="PersLimpList"),

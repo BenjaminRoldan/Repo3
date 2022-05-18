@@ -66,16 +66,25 @@ class Alumno(models.Model):
     direccion=models.CharField(max_length=60, blank=True, null=True)
     telefono=models.IntegerField(blank=True, null=True)
     email=models.EmailField(blank=True, null=True)
+    calificaciones = models.OneToOneField('Calificacion', null=True, on_delete=models.CASCADE, related_name='+' )
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'Alumno/a {self.nombre} {self.apellido}'
 
-class Calificacion(models.Model):
-    alumno = models.OneToOneField(Alumno, on_delete=models.CASCADE)
-    materia = models.OneToOneField(Materia, on_delete=models.CASCADE)
-    docente = models.OneToOneField(Docente, on_delete=models.CASCADE)
-    nota = models.FloatField()
+class Nota(models.Model):
+    C1 = models.FloatField(null=True, blank=True)
+    C2 = models.FloatField(null=True, blank=True)
+    C3 = models.FloatField(null=True, blank=True)
+    
 
-    def __str__(self):
-        return f'Calificación de {self.alumno} en {self.materia}'
+class Calificacion(models.Model):
+    matematicas = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
+    cienciasnaturales = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
+    cienciassociales = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
+    ingles = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
+    educacionfisica = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
+
+
+
+

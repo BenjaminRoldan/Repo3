@@ -19,3 +19,5 @@ admin.site.register(Calificacion)
 admin.site.register(Grado)
 
 admin.site.register(PersLimp)
+
+admin.site.register(Nota)
