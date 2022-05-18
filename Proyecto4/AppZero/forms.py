@@ -14,7 +14,7 @@ class AlumnosFormulario(forms.Form):
     telefono = forms.IntegerField()
     edad = forms.IntegerField()
 
-class ProfesoresFormulario(forms.Form):
+class DocentesFormulario(forms.Form):
 
     nombre = forms.CharField()
     apellido = forms.CharField()
@@ -38,6 +38,4 @@ class PersLimpFormulario(forms.Form):
     apellido = forms.CharField()
     dni = forms.IntegerField()
     telefono = forms.IntegerField()
-    turno = forms.CharField()
-    turno = forms.CharField()
     turno = forms.CharField()

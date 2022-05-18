@@ -18,7 +18,7 @@
                         {% endif %}
 
                         {% if request.user.userprofile.cargo == 'Recursos Humanos' %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'Docentes' %}">Docentes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'DocentesList' %}">Docentes</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'Autoridades' %}">Autoridades</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'PersLimpList' %}">Personal de limpieza</a></li>
                         {% endif %}
@@ -26,7 +26,7 @@
                         {% if request.user.userprofile.cargo == 'Director' %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'AlumnosList' %}">Alumnos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Cursos' %}">Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Docentes' %}">Docentes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'DocentesList' %}">Docentes</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Autoridades' %}">Autoridades</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'PersLimpList' %}">Personal de limpieza</a></li>
                         {% endif %}

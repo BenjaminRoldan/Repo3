@@ -5,7 +5,6 @@ from AppZero import views
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
     path('', views.inicio, name="Cursos"),
-    path('', views.inicio, name="Docentes"),
     path('', views.inicio, name="Autoridades"),
 
     #----------------ALUMNOS----------------
@@ -18,6 +17,12 @@ urlpatterns = [
     path('alumnos/borrar/<pk>', views.AlumnosDelete.as_view(), name="AlumnosDelete"),
 
 
+    #---------------- DOCENTES ----------------
+    path('docentes/lista', views.DocentesList.as_view(), name="DocentesList"),
+    path('docentes/detalle/<pk>', views.DocentesDetail.as_view(), name="DocentesDetail"),
+    path('docentes/crear', views.DocentesCreate.as_view(), name="DocentesCreate"),
+    path('docentes/editar/<pk>', views.DocentesUpdate.as_view(), name="DocentesUpdate"),
+    path('docentes/borrar/<pk>', views.DocentesDelete.as_view(), name="DocentesDelete"),
 
     #----------------PERSONAL LIMPIEZA----------------
     path('personal_limpieza/lista', views.PersLimpList.as_view(), name="PersLimpList"),

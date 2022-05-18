@@ -1,0 +1,14 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+
+    <form method="POST"> {% csrf_token %}
+        ¿Estás seguro de que deseas borrar el personal "{{object.nombre}} {{object.apellido}}"?
+        <br>
+        <input class="btn btn-danger" type="submit" value="Estoy seguro">
+        <a class="btn btn-warning" href="{% url 'DocentesList' %}">Volver</a>
+    </form>
+
+{% endblock %}

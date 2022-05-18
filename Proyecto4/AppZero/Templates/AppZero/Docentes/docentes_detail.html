@@ -1,0 +1,25 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+    <ul>
+        <li>Personal: {{docente.nombre}} {{docente.apellido}}</li>
+        <li>DNI: {{docente.DNI}}</li>
+        
+        {% if docente.direccion %}
+        <li>Dirección: {{docente.direccion}}</li>
+        {% endif %}
+
+        {% if docente.telefono %}
+        <li>Teléfono: {{docente.telefono}}</li>
+        {% endif %}
+
+        {% if docente.email %}
+        <li>Email: {{docente.email}}</li>
+        {% endif %}
+        <li>Profesorado: {{docente.profesorado}}</li>
+    </ul>
+    <a class="btn btn-lg btn-warning" href="{% url 'DocentesList' %}">Volver</a>
+
+{% endblock %}
