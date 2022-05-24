@@ -28,13 +28,23 @@
             <tbody>
             <tr>
                 <th scope="row">1° Trimestre</th>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>P</td>
+                <td>{{alumno.calificaciones.matematicas.C1}}</td>
+                <td>{{alumno.calificaciones.cienciasnaturales.C1}}</td>
+                <td>{{alumno.calificaciones.cienciassociales.C1}}</td>
+                <td>{{alumno.calificaciones.practlenguaje.C1}}</td>
+                <td>{{alumno.calificaciones.ingles.C1}}</td>
+                <td>{{alumno.calificaciones.educacionfisica.C1}}</td>
+                <td>
+                    {{
+                    (alumno.calificaciones.matematicas.c1 + 
+                    alumno.calificacion.cienciasnaturales.C1 +
+                    alumno.calificacion.cienciassociales.C1 +
+                    alumno.calificacion.practlenguaje.C1 +
+                    alumno.calificacion.ingles.C1 + 
+                    alumno.calificacion.educacionfisica.C1) / 6
+                
+                    }}
+                </td>
             </tr>
             <tr>
                 <th scope="row">2° Trimestre</th>

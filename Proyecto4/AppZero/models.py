@@ -83,6 +83,7 @@ class Calificacion(models.Model):
     matematicas = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
     cienciasnaturales = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
     cienciassociales = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
+    practlenguaje = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
     ingles = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
     educacionfisica = models.OneToOneField(Nota, on_delete=models.CASCADE, related_name='+', null=True)
 
