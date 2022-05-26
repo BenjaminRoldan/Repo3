@@ -1,0 +1,26 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+    <ul>
+        <li>Personal: {{alumno.nombre}} {{alumno.apellido}}</li>
+        <li>DNI: {{alumno.DNI}}</li>
+        
+        {% if alumno.direccion %}
+        <li>Dirección: {{alumno.direccion}}</li>
+        {% endif %}
+
+        {% if alumno.telefono %}
+        <li>Teléfono: {{alumno.telefono}}</li>
+        {% endif %}
+
+        {% if alumno.email %}
+        <li>Email: {{alumno.email}}</li>
+        {% endif %}
+
+        <li>{{alumno.curso}}</li>
+    </ul>
+    <a class="btn btn-lg btn-warning" href="javascript:history.back()">Volver</a>
+
+{% endblock %}

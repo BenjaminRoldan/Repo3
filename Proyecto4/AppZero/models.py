@@ -73,6 +73,23 @@ class Alumno(models.Model):
     def __str__(self):
         return f'Alumno/a {self.nombre} {self.apellido}'
 
+    def save(self, *args, **kwargs):
+        if self.pk is None:
+            m = Nota.objects.create()
+            m.save()
+            cn = Nota.objects.create()
+            cn.save()
+            cs = Nota.objects.create()
+            cs.save()
+            pl = Nota.objects.create()
+            pl.save()
+            i = Nota.objects.create()
+            i.save()
+            e = Nota.objects.create()
+            e.save()
+            self.calificaciones = Calificacion.objects.create(matematicas=m, cienciasnaturales=cn, cienciassociales=cs, practlenguaje=pl, ingles=i, educacionfisica=e)
+        super().save(*args, **kwargs)
+
 class Nota(models.Model):
     C1 = models.FloatField(null=True, blank=True)
     C2 = models.FloatField(null=True, blank=True)

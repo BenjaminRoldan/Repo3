@@ -31,4 +31,7 @@ urlpatterns = [
     path('personal_limpieza/editar/<pk>', views.PersLimpUpdate.as_view(), name="PersLimpUpdate"),
     path('personal_limpieza/borrar/<pk>', views.PersLimpDelete.as_view(), name="PersLimpDelete"),
 
+    #---------------- Cursos ----------------
+    path('grados/', views.vergrados, name="VerGrados"),
+    path('curso/<id>', views.vercursos, name="VerCurso"),
 ]

@@ -1,18 +1,19 @@
 from django import forms
+from django.forms import ModelForm
+from .models import Curso
 
-class AutoridadesFormulario(forms.Form):
+class Alumnoform(ModelForm):
+    class Meta:
+        model = Curso
+        fields = ['nombre', 'apellido', 'DNI', 'direccion', 'telefono', 'email', 'curso']
 
-    nombre = forms.CharField()
-    apellido = forms.CharField()
+    nombre = forms.CharField(max_length=40)
+    apellido = forms.CharField(max_length=40)
+    DNI = forms.IntegerField()
     telefono = forms.IntegerField()
-    cargo = forms.CharField()
-
-class AlumnosFormulario(forms.Form):
-
-    nombre = forms.CharField()
-    apellido = forms.CharField()
-    telefono = forms.IntegerField()
-    edad = forms.IntegerField()
+    direccion = forms.CharField(max_length=60)
+    email = forms.EmailField()
+    curso = forms.ModelChoiceField(queryset=Curso.objects.all())
 
 class DocentesFormulario(forms.Form):
 

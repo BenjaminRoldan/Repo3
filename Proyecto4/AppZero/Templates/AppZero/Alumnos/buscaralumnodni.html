@@ -28,43 +28,137 @@
             <tbody>
             <tr>
                 <th scope="row">1° Trimestre</th>
+                {% if alumno.calificaciones.matematicas.C1 %}
                 <td>{{alumno.calificaciones.matematicas.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciasnaturales.C1 %}
                 <td>{{alumno.calificaciones.cienciasnaturales.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciassociales.C1 %}
                 <td>{{alumno.calificaciones.cienciassociales.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.practlenguaje.C1 %}
                 <td>{{alumno.calificaciones.practlenguaje.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.ingles.C1 %}
                 <td>{{alumno.calificaciones.ingles.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.educacionfisica.C1 %}
                 <td>{{alumno.calificaciones.educacionfisica.C1}}</td>
-                <td>
-                    {{
-                    (alumno.calificaciones.matematicas.c1 + 
-                    alumno.calificacion.cienciasnaturales.C1 +
-                    alumno.calificacion.cienciassociales.C1 +
-                    alumno.calificacion.practlenguaje.C1 +
-                    alumno.calificacion.ingles.C1 + 
-                    alumno.calificacion.educacionfisica.C1) / 6
-                
-                    }}
-                </td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if prom1 %}
+                <td>{{prom1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
             </tr>
             <tr>
                 <th scope="row">2° Trimestre</th>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>P</td>
+                
+                {% if alumno.calificaciones.matematicas.C2 %}
+                <td>{{alumno.calificaciones.matematicas.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciasnaturales.C2 %}
+                <td>{{alumno.calificaciones.cienciasnaturales.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciassociales.C2 %}
+                <td>{{alumno.calificaciones.cienciassociales.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.practlenguaje.C2 %}
+                <td>{{alumno.calificaciones.practlenguaje.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.ingles.C2 %}
+                <td>{{alumno.calificaciones.ingles.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.educacionfisica.C2 %}
+                <td>{{alumno.calificaciones.educacionfisica.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if prom2 %}
+                <td>{{prom2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
             </tr>
             <tr>
                 <th scope="row">3° Trimestre</th>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>A</td>
-                <td>P</td>
+                {% if alumno.calificaciones.matematicas.C3 %}
+                <td>{{alumno.calificaciones.matematicas.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciasnaturales.C3 %}
+                <td>{{alumno.calificaciones.cienciasnaturales.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciassociales.C3 %}
+                <td>{{alumno.calificaciones.cienciassociales.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.practlenguaje.C3 %}
+                <td>{{alumno.calificaciones.practlenguaje.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.ingles.C3 %}
+                <td>{{alumno.calificaciones.ingles.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.educacionfisica.C3 %}
+                <td>{{alumno.calificaciones.educacionfisica.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if prom3 %}
+                <td>{{prom3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
             </tr>
             </tbody>
         </table>

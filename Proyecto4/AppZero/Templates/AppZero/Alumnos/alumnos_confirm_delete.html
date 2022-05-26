@@ -1,0 +1,13 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+
+    <form method="POST"> {% csrf_token %}
+        <h3>¿Estás seguro de que deseas borrar al alumno/a "{{object.nombre}} {{object.apellido}}"?</h3> 
+        <input class="btn btn-danger" type="submit" value="Estoy seguro">
+        <a class="btn btn-warning" href="javascript:history.back()">Volver</a>
+    </form>
+
+{% endblock %}
