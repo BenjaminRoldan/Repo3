@@ -1,0 +1,149 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+
+<h4>Alumno/a: {{alumno.nombre}} {{alumno.apellido}} | {{alumno.curso}}</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Matemáticas</th>
+                    <th scope="col">Ciencias Naturales</th>
+                    <th scope="col">Ciencias Sociales</th>
+                    <th scope="col">Prácticas del lenguaje</th>
+                    <th scope="col">Inglés</th>
+                    <th scope="col">Educación Física</th>
+                    </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1° Trimestre</th>
+                {% if alumno.calificaciones.matematicas.C1 %}
+                <td>{{alumno.calificaciones.matematicas.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciasnaturales.C1 %}
+                <td>{{alumno.calificaciones.cienciasnaturales.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciassociales.C1 %}
+                <td>{{alumno.calificaciones.cienciassociales.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.practlenguaje.C1 %}
+                <td>{{alumno.calificaciones.practlenguaje.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.ingles.C1 %}
+                <td>{{alumno.calificaciones.ingles.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.educacionfisica.C1 %}
+                <td>{{alumno.calificaciones.educacionfisica.C1}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th scope="row">2° Trimestre</th>
+                
+                {% if alumno.calificaciones.matematicas.C2 %}
+                <td>{{alumno.calificaciones.matematicas.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciasnaturales.C2 %}
+                <td>{{alumno.calificaciones.cienciasnaturales.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciassociales.C2 %}
+                <td>{{alumno.calificaciones.cienciassociales.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.practlenguaje.C2 %}
+                <td>{{alumno.calificaciones.practlenguaje.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.ingles.C2 %}
+                <td>{{alumno.calificaciones.ingles.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.educacionfisica.C2 %}
+                <td>{{alumno.calificaciones.educacionfisica.C2}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+            </tr>
+            <tr>
+                <th scope="row">3° Trimestre</th>
+                {% if alumno.calificaciones.matematicas.C3 %}
+                <td>{{alumno.calificaciones.matematicas.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciasnaturales.C3 %}
+                <td>{{alumno.calificaciones.cienciasnaturales.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.cienciassociales.C3 %}
+                <td>{{alumno.calificaciones.cienciassociales.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.practlenguaje.C3 %}
+                <td>{{alumno.calificaciones.practlenguaje.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.ingles.C3 %}
+                <td>{{alumno.calificaciones.ingles.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+
+                {% if alumno.calificaciones.educacionfisica.C3 %}
+                <td>{{alumno.calificaciones.educacionfisica.C3}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th scope="row">Acción</th>
+                <td><a class='btn btn-primary' href="{% url 'ModNota' alumno.id 'm' %}">Modificar</a></td>
+                <td><a class='btn btn-primary' href="{% url 'ModNota' alumno.id 'cn' %}">Modificar</a></td>
+                <td><a class='btn btn-primary' href="{% url 'ModNota' alumno.id 'cs' %}">Modificar</a></td>
+                <td><a class='btn btn-primary' href="{% url 'ModNota' alumno.id 'pl' %}">Modificar</a></td>
+                <td><a class='btn btn-primary' href="{% url 'ModNota' alumno.id 'i' %}">Modificar</a></td>
+                <td><a class='btn btn-primary' href="{% url 'ModNota' alumno.id 'ef' %}">Modificar</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-warning" href="javascript:history.back()">Volver</a>
+{% endblock %}

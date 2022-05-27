@@ -1,3 +1,4 @@
+from django.http import HttpRequest, HttpResponse
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -96,13 +97,13 @@ class AlumnosCreate(CreateView):
 
 class AlumnosUpdate(UpdateView):
     model = Alumno
-    success_url = '/AppZero/alumnos/lista'
-    fields = '__all__'
+    success_url = '/AppZero/grados/'
+    fields = ['nombre', 'apellido', 'DNI', 'direccion', 'telefono', 'email', 'curso']
 
 class AlumnosDelete(DeleteView):
     model = Alumno
     template_name = 'AppZero/Alumnos/alumnos_confirm_delete.html'
-    success_url = '/AppZero/alumnos/lista'
+    success_url = '/AppZero/grados/'
 ##################################################################
 
 
@@ -158,4 +159,51 @@ class PersLimpDelete(DeleteView):
     template_name = 'AppZero/PersLimp/perslimp_confirm_delete.html'
     success_url = '/AppZero/personal_limpieza/lista'
 ##################################################################
+
+
+
+################## CRUD Nota ##################
+def VerNotas(request, id):
+    alumno = Alumno.objects.get(id=id)
+    return render(request, "AppZero/Notas/notas_list.html", {'alumno': alumno})
+
+def EditarNota(request, id, materia):
+    alumno = Alumno.objects.get(id=id)
+    
+    if materia == 'm':
+        nota = alumno.calificaciones.matematicas
+    if materia == 'cs':
+        nota = alumno.calificaciones.cienciassociales
+    if materia == 'cn':
+        nota = alumno.calificaciones.cienciasnaturales
+    if materia == 'pl':
+        nota = alumno.calificaciones.practlenguaje
+    if materia == 'i':
+        nota = alumno.calificaciones.ingles
+    if materia == 'ef':
+        nota = alumno.calificaciones.educacionfisica
+
+    if request.method == 'POST':
+        form = Notaform(request.POST)
+
+        if form.is_valid():
+            info = form.cleaned_data
+
+            nota.C1 = info['C1']
+            nota.C2 = info['C2']
+            nota.C2 = info['C3']
+
+            nota.save()
+
+            return render(request, "AppZero/Notas/notas_list.html", {'alumno': alumno})
+    else:
+        form = Notaform(initial={'C1': nota.C1, 'C2': nota.C2, 'C3': nota.C3})
+
+    return render(request, "AppZero/nota_form.html", {'form': form})
+
+class NotaUpdate(UpdateView):
+    model = Nota
+    success_url = '/AppZero/grados/'
+    fields = '__all__'
+
 

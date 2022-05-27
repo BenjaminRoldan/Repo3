@@ -6,6 +6,7 @@
 
     <form method="POST"> {% csrf_token %}
         <h3>¿Estás seguro de que deseas borrar al alumno/a "{{object.nombre}} {{object.apellido}}"?</h3> 
+        <h4>Esta acción no se puede restaurar.</h4>
         <input class="btn btn-danger" type="submit" value="Estoy seguro">
         <a class="btn btn-warning" href="javascript:history.back()">Volver</a>
     </form>

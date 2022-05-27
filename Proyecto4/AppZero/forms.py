@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Curso
+from .models import Curso, Nota
 
 class Alumnoform(ModelForm):
     class Meta:
@@ -15,28 +15,7 @@ class Alumnoform(ModelForm):
     email = forms.EmailField()
     curso = forms.ModelChoiceField(queryset=Curso.objects.all())
 
-class DocentesFormulario(forms.Form):
-
-    nombre = forms.CharField()
-    apellido = forms.CharField()
-    telefono = forms.IntegerField()
-    edad = forms.IntegerField()
-    especialidad = forms.CharField()
-
-class CursoFormulario(forms.Form):
-
-    materia = forms.CharField()
-    nivel = forms.CharField()
-
-class MateriaFormulario(forms.Form):
-
-    nombre = forms.CharField()
-    nivel = forms.CharField()
-
-class PersLimpFormulario(forms.Form):
-
-    nombre = forms.CharField()
-    apellido = forms.CharField()
-    dni = forms.IntegerField()
-    telefono = forms.IntegerField()
-    turno = forms.CharField()
+class Notaform(ModelForm):
+    class Meta:
+        model = Nota
+        fields = ['C1', 'C2', 'C3']

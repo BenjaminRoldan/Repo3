@@ -34,4 +34,6 @@ urlpatterns = [
     #---------------- Cursos ----------------
     path('grados/', views.vergrados, name="VerGrados"),
     path('curso/<id>', views.vercursos, name="VerCurso"),
+    path('notas/<id>', views.VerNotas, name="VerNotas"),
+    path('modificar_nota/<id>/<materia>', views.EditarNota, name="ModNota"),
 ]

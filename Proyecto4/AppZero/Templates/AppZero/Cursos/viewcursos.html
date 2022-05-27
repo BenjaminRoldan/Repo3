@@ -22,7 +22,7 @@
         <td>{{alumno.apellido}}</td>
         <td>{{alumno.DNI}}</td>
         <td>
-        <a class="btn btn-secondary" href="">Modificar Notas</a>        
+        <a class="btn btn-secondary" href="{% url 'VerNotas' alumno.id %}">Modificar Notas</a>        
         {% if request.user.userprofile.cargo == 'Preceptor' or request.user.userprofile.cargo == 'Director' %}
         <a class="btn btn-primary" href="{% url 'AlumnosDetail' alumno.id %}">Detalle</a>
         <a class="btn btn-info text-white" href="{% url 'AlumnosUpdate' alumno.id %}">Editar</a>
@@ -33,6 +33,9 @@
     {% endfor %}
     </tbody>
   </table>
+  {% if request.user.userprofile.cargo == 'Preceptor' or request.user.userprofile.cargo == 'Director' %}
   <a class="btn btn-success" href="{% url 'AlumnosCreate' %}">Añadir a un nuevo alumno</a>
+  {% endif %}
+  <a class="btn btn-warning" href="javascript:history.back()">Volver</a>
 
 {% endblock %}

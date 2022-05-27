@@ -1,15 +1,29 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar</title>
-</head>
-<body>
-    <form action="" method="POST"> {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Registrar</button>
-    </form>
-    
-</body>
-</html>
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+<h3>Puedes registrarte como empleado aquí</h3>
+<h4>Selecciona cuál sería tu puesto: </h4>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div>
+
+{% if tiporegistro %}
+<form action="" method="POST"> {% csrf_token %}
+    {{form.as_p}}
+    <h4>Alguien de la administración te aprobará</h4>
+    <button class="btn btn-primary" type="submit">Registrar</button>
+</form>
+{% endif %}
+<br>
+<br>
+<a class="btn btn-secondary btn-sm" href="{% url 'Login' %}">Volver</a>
+{% endblock %}
