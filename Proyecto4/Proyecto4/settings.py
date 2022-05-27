@@ -117,4 +117,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SESSION_COOKIE_AGE = 150 * 60
+SESSION_COOKIE_AGE = 15 * 60 #15 minutos de sesion activa
