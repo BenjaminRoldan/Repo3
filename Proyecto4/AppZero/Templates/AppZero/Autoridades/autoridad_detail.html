@@ -1,0 +1,27 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+    <ul>
+        <li>Personal: {{autoridad.nombre}} {{autoridad.apellido}}</li>
+        <li>DNI: {{autoridad.DNI}}</li>
+        
+        {% if autoridad.direccion %}
+        <li>Dirección: {{autoridad.direccion}}</li>
+        {% endif %}
+
+        {% if autoridad.telefono %}
+        <li>Teléfono: {{autoridad.telefono}}</li>
+        {% endif %}
+
+        {% if autoridad.email %}
+        <li>Email: {{autoridad.email}}</li>
+        {% endif %}
+
+        <li>Cargo: {{autoridad.cargo}}</li>
+    </ul>
+    <a class="btn btn-warning" href="javascript:history.back()">Volver</a>
+    
+
+{% endblock %}

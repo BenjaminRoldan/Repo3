@@ -31,6 +31,13 @@ urlpatterns = [
     path('personal_limpieza/editar/<pk>', views.PersLimpUpdate.as_view(), name="PersLimpUpdate"),
     path('personal_limpieza/borrar/<pk>', views.PersLimpDelete.as_view(), name="PersLimpDelete"),
 
+    #---------------- Autoridades ----------------
+    path('autoridades/lista', views.AutoridadesList.as_view(), name="AutoridadesList"),
+    path('autoridades/detalle/<pk>', views.AutoridadesDetail.as_view(), name="AutoridadesDetail"),
+    path('autoridades/crear', views.AutoridadesCreate.as_view(), name="AutoridadesCreate"),
+    path('autoridades/editar/<pk>', views.AutoridadesUpdate.as_view(), name="AutoridadesUpdate"),
+    path('autoridades/borrar/<pk>', views.AutoridadesDelete.as_view(), name="AutoridadesDelete"),
+
     #---------------- Cursos ----------------
     path('grados/', views.vergrados, name="VerGrados"),
     path('curso/<id>', views.vercursos, name="VerCurso"),

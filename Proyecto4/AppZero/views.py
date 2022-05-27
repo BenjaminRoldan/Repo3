@@ -194,6 +194,41 @@ class PersLimpDelete(DeleteView):
 
 
 
+################## CRUD Autoridades ##################
+@method_decorator(login_required(login_url='Login'), name='dispatch')
+@method_decorator(personal_permitido(cargo_permitido=['Recursos Humanos']), name='dispatch')
+class AutoridadesList(ListView):
+    model = Autoridad
+    template_name = 'AppZero/Autoridades/autoridad_list.html'
+
+@method_decorator(login_required(login_url='Login'), name='dispatch')
+@method_decorator(personal_permitido(cargo_permitido=['Recursos Humanos']), name='dispatch')
+class AutoridadesDetail(DetailView):
+    model = Autoridad
+    template_name = 'AppZero/Autoridades/autoridad_detail.html'
+    
+@method_decorator(login_required(login_url='Login'), name='dispatch')
+@method_decorator(personal_permitido(cargo_permitido=['Recursos Humanos']), name='dispatch')
+class AutoridadesCreate(CreateView):
+    model = Autoridad
+    success_url = '/AppZero/autoridades/lista'
+    fields = '__all__'
+
+@method_decorator(login_required(login_url='Login'), name='dispatch')
+@method_decorator(personal_permitido(cargo_permitido=['Recursos Humanos']), name='dispatch')
+class AutoridadesUpdate(UpdateView):
+    model = Autoridad
+    success_url = '/AppZero/autoridades/lista'
+    fields = '__all__'
+
+@method_decorator(login_required(login_url='Login'), name='dispatch')
+@method_decorator(personal_permitido(cargo_permitido=['Recursos Humanos']), name='dispatch')
+class AutoridadesDelete(DeleteView):
+    model = Autoridad
+    template_name = 'AppZero/Autoridades/autoridad_confirm_delete.html'
+    success_url = '/AppZero/autoridades/lista'
+##################################################################
+
 ################## CRUD Nota ##################
 @login_required(login_url='Login')
 @personal_permitido(cargo_permitido=['Preceptor', 'Docente'])

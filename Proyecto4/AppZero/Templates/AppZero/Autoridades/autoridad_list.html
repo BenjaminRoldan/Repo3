@@ -1,0 +1,38 @@
+{% extends "AppZero/padre.html" %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+<h4>Autoridades de la Escuela</h4>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Acciones</th>   
+      </tr>
+    </thead>
+    <tbody> 
+    {% for autoridad in object_list %}                
+      <tr>
+        <th scope="row">{{autoridad.id}}</th>
+        <td>{{autoridad.nombre}}</td>
+        <td>{{autoridad.apellido}}</td>
+        <td>{{autoridad.DNI}}</td>
+        <td>{{autoridad.cargo}}</td>
+        <td>
+            <a class="btn btn-primary" href="{% url 'AutoridadesDetail' autoridad.id %}">Detalle</a>
+            <a class="btn btn-info text-white" href="{% url 'AutoridadesUpdate' autoridad.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'AutoridadesDelete' autoridad.id %}">Borrar</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <a class="btn btn-success" href="{% url 'AutoridadesCreate' %}">Añadir una nueva persona</a>
+  <a class="btn btn-warning" href="{% url 'Inicio' %}">Volver</a>
+
+{% endblock %}

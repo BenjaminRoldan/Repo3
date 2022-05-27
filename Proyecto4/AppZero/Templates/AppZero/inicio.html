@@ -26,7 +26,7 @@
                 <h1 class="fw-bolder ">Sea bienvenido/a {{ user.get_username }}</h1>
                 <p>Usted tiene permiso de Recursos Humanos: puede agregar, modificar y borrar docentes, personal de limpieza y autoridades</p>
                 <a class="btn btn-lg btn-light" href="{% url 'DocentesList' %}">Ver el personal docente</a>
-                <a class="btn btn-lg btn-light" href="{% url 'Inicio' %}">Ver autoridades</a>
+                <a class="btn btn-lg btn-light" href="{% url 'AutoridadesList' %}">Ver autoridades</a>
                 <a class="btn btn-lg btn-light" href="{% url 'PersLimpList' %}">Ver el personal de limpieza</a>
             {% endif %}
 
@@ -36,7 +36,7 @@
             <p>Usted tiene todos los permisos</p>
             <a class="btn btn-lg btn-light" href="{% url 'VerGrados' %}">Ver los cursos</a>
             <a class="btn btn-lg btn-light" href="{% url 'DocentesList' %}">Ver el personal docente</a>
-            <a class="btn btn-lg btn-light" href="{% url 'Inicio' %}">Ver autoridades</a>
+            <a class="btn btn-lg btn-light" href="{% url 'AutoridadesList' %}">Ver autoridades</a>
             <a class="btn btn-lg btn-light" href="{% url 'PersLimpList' %}">Ver el personal de limpieza</a>
             {% endif %}
         </div>
