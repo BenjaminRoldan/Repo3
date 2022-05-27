@@ -5,16 +5,10 @@
 {% block contenidoAdicional %}
 <h3>Puedes registrarte como empleado aquí</h3>
 <h4>Selecciona cuál sería tu puesto: </h4>
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown button
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-  </div>
+<a class="btn btn-primary" href="{% url 'Registro' 1 %}">Docente</a>
+<a class="btn btn-primary" href="{% url 'Registro' 2 %}">Preceptor</a>
+<a class="btn btn-primary" href="{% url 'Registro' 3 %}">Recursos Humanos</a>
+
 
 {% if tiporegistro %}
 <form action="" method="POST"> {% csrf_token %}

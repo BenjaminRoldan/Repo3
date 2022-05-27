@@ -22,7 +22,7 @@ def login_request(request):
 
     return render(request, 'login.html', {'form': form})
 
-def register(request):
+def register(request, id=0):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         
@@ -32,5 +32,7 @@ def register(request):
 
     else: 
         form = UserCreationForm()
+
+    regis = True
     
-    return render(request, 'registro.html', {'form': form})
+    return render(request, 'registro.html', {'form': form, 'tiporegistro': regis})

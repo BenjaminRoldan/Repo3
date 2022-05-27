@@ -8,7 +8,7 @@
     {{form.as_p}}
     <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
 </form>
-    <h5>Sino, puedes registrarte haciendo click <a href="{% url 'Registro' %}">aquí.</a></h5>
+    <h5>Si no tienes una cuenta, puedes registrarte haciendo click <a href="{% url 'Registro' 0 %}">aquí.</a></h5>
     <a class="btn btn-secondary btn-sm" href="{% url 'Inicio' %}">Volver al inicio</a>
 
 {% endblock %}
