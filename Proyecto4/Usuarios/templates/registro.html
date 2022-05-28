@@ -11,9 +11,29 @@
 
 
 {% if tiporegistro %}
+<h3>Registro para {{Cargo}}</h3>
 <form action="" method="POST"> {% csrf_token %}
-    {{form.as_p}}
-    <h4>Alguien de la administración te aprobará</h4>
+
+    <h6>Datos Personales</h6>
+    <p>{{form1.nombre.label}}: {{form1.nombre}}</p>
+    <p>{{form1.apellido.label}}: {{form1.apellido}}</p>
+    <p>{{form1.DNI.label}}: {{form1.DNI}}</p>
+    <p>{{form1.direccion.label}}: {{form1.direccion}}</p>
+    <p>{{form1.telefono.label}}: {{form1.telefono}}</p>
+    <p>{{form1.email.label}}: {{form1.email}}</p>
+
+    
+    {% if tiporegistro == 1 %}
+    <p>{{form1.profesorado.label}}: {{form1.profesorado}}</p>
+    {% endif %}
+
+    <h6>Datos de Usuario</h6>
+    <p>{{form1.username.label}}: {{form1.username}}</p>
+    <p>{{form1.password1.label}}: {{form1.password1}}</p>
+    <p>{{form1.password2.label}}: {{form1.password2}}</p>
+
+    <h5>Una vez registrado, deberás esperar a que alguién de la administración te acepte.</h5>
+
     <button class="btn btn-primary" type="submit">Registrar</button>
 </form>
 {% endif %}

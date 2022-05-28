@@ -43,7 +43,7 @@ def vercursos(request, id):
         alumnos = Alumno.objects.filter(curso__grado=6).filter(curso__division='A')
     if id == '6B':
         alumnos = Alumno.objects.filter(curso__grado=6).filter(curso__division='B')
-    return render(request, "AppZero/Cursos/viewcursos.html", {'alumnos': alumnos})
+    return render(request, "AppZero/Cursos/viewcursos.html", {'alumnos': alumnos, 'curso': id})
 
 
 def buscarAlumnoDNI(request):
@@ -262,9 +262,13 @@ def EditarNota(request, id, materia):
 
             nota.C1 = info['C1']
             nota.C2 = info['C2']
-            nota.C2 = info['C3']
+            nota.C3 = info['C3']
+
+            print(nota, info)
 
             nota.save()
+
+            print(nota, info)
 
             return render(request, "AppZero/Notas/notas_list.html", {'alumno': alumno})
     else:
