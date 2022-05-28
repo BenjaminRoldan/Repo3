@@ -16,10 +16,12 @@ def inicio(request):
     return render(request, "AppZero/inicio.html", {'posts': posts})
 
 @login_required(login_url='Login')
+@personal_permitido(cargo_permitido=['Docente', 'Preceptor'])
 def vergrados(request):
     return render(request, "AppZero/Cursos/viewgrados.html")
 
 @login_required(login_url='Login')
+@personal_permitido(cargo_permitido=['Docente', 'Preceptor'])
 def vercursos(request, id):
     if id == '1A':
         alumnos = Alumno.objects.filter(curso__grado=1).filter(curso__division='A')
