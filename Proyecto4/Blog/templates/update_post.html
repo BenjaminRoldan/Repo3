@@ -1,0 +1,19 @@
+{% extends 'AppZero/padre.html' %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+<h2>Modifica un comunicado</h2>
+<div class="form-group">
+<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    <p>Título: {{form.title}}</p>
+    <p>Descripción: {{form.description}}</p>
+    <p>Imagen: {{form.image}}</p>
+    <p>Fecha: {{form.date}}</p>
+    <p>El formato de la fecha es AAAA-MM-DD, por ejemplo, 2022-05-25</p>
+    <input class='btn btn-primary' type="submit" value="Crear">
+    <a class="btn btn-warning" href="{% url 'Inicio' %}">Volver</a>
+</form>
+</div>
+
+{% endblock %}

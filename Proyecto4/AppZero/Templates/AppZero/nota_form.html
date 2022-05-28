@@ -4,6 +4,7 @@
 
 {% block contenidoAdicional %}
 
+<h2>Modificar Nota</h2>
 <form method="POST"> {% csrf_token %}
     {{form.as_p}}
     <input class='btn btn-primary' type="submit" value="Enviar">

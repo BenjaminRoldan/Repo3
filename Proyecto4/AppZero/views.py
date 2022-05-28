@@ -5,13 +5,15 @@ from django.views.generic.detail import DetailView
 from django.shortcuts import render
 from AppZero.forms import *
 from AppZero.models import *
+from Blog.models import *
 from django.contrib.auth.decorators import login_required
 from Usuarios.decorators import personal_permitido
 from django.utils.decorators import method_decorator
 
 
 def inicio(request):
-    return render(request, "AppZero/inicio.html")
+    posts = Post.objects.all().order_by('-date')
+    return render(request, "AppZero/inicio.html", {'posts': posts})
 
 @login_required(login_url='Login')
 def vergrados(request):

@@ -53,4 +53,36 @@
     </div>
 </header>
 {% endif %}
+
+<br>
+<h2 class="text-center">Noticias y Comunicados</h2>
+
+{% if request.user.userprofile.cargo == 'Preceptor' or request.user.userprofile.cargo == 'Director' %}
+    <a href="{% url 'PostCreate' %}" class="btn btn-success">Añadir nuevo post</a>
+{% endif %}
+    
+{% for post in posts %}
+<div class="p-3">
+    <div class="card card-body">
+        <div class="row">
+            <div class="col-3">
+                <img src="{{post.image.url}}" alt="{{project.title}}" class="img-fluid">
+            </div>
+            <div class="col-9">
+                <h2>{{post.title}}</h2>
+                <h3>{{post.date}}</h3>
+                <p>{{post.description|striptags|truncatechars:100}}</p>
+            
+                <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Detalles</a>
+                
+                {% if request.user.userprofile.cargo == 'Preceptor' or request.user.userprofile.cargo == 'Director' %}
+                <a href="{% url 'PostUpdate' post.id %}" class="btn btn-info text-white">Editar</a>
+                <a href="{% url 'PostDelete' post.id %}" class="btn btn-danger">Borrar</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
 {% endblock %}

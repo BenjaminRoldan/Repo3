@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from Blog.models import Post
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -18,7 +19,9 @@ def login_request(request):
 
             if user is not None:
                 login(request, user)
-        return render(request, 'inicio.html')
+
+        posts = Post.objects.all().order_by('-date')
+        return render(request, "AppZero/inicio.html", {'posts': posts})
 
     form = AuthenticationForm()
 
@@ -36,6 +39,7 @@ def register(request, id):
                 form1.cargo = 'Preceptor'
             elif id == 3:
                 form1.cargo = 'Recursos Humanos'
+
             form1.save()
             return render(request, 'inicio.html')
 

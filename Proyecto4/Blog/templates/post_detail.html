@@ -1,0 +1,24 @@
+{% extends 'AppZero/padre.html' %}
+
+{% load static %}
+
+{% block contenidoAdicional %}
+<div>
+
+    <h2 class="text-center" >{{post.title}}</h2>
+
+    <h3 class="text-center my-2 h5 text-muted">{{post.date}}</h3>
+
+    <div class="text-center">
+        <img src="{{post.image.url}}" alt="{{project.title}}" class="img-fluid">
+    </div>
+
+    <div class="text-left my-4">
+        <p>{{post.description|safe}}</p>
+    </div>
+
+</div>
+<a class="btn btn-warning" href="{% url 'Inicio' %}">Volver</a>
+
+
+{% endblock %}
